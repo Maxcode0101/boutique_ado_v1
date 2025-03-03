@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/maximiliankaening/Documents/vscode-projects/boutique_ado_v1 /.venv"
+set -gx VIRTUAL_ENV "/Users/maximiliankaening/Documents/vscode-projects/boutique_ado_project/.venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
