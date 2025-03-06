@@ -49,9 +49,19 @@ def add_to_bag(request, item_id):
 def adjust_bag(request, item_id):
     """ Adjust the quantity of the specified product to the specified amount """
 
+    quantity_str = request.POST.get('quantity', '').strip()
+    if not quantity_str:
+        messages.error(request, "Please enter a valid quantity.")
+        return redirect(reverse('view_bag'))
+
+    try:
+        quantity = int(quantity_str)
+    except ValueError:
+        messages.error(request, "Quantity must be an integer.")
+        return redirect(reverse('view_bag'))
+
     product = get_object_or_404(Product, pk=item_id)
 
-    quantity = int(request.POST.get('quantity'))
     size = None
     if 'product_size' in request.POST:
         size = request.POST['product_size']
